@@ -1,0 +1,96 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110692262-1"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-110692262-1');
+    </script>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="description" content="Luv-Accordion Web">
+    <meta name="author" content="K.Matsumoto">
+
+    <title>Luv-Accordion</title>
+
+<!--
+-->
+<!-- 初期状態は非表示 -->
+<style type="text/css">body { visibility: hidden; }</style>
+<noscript>
+<!-- スクリプトが無効な場合は以下の指定がカスケードされる -->
+<style type="text/css">body { visibility: visible; }</style>
+</noscript>
+
+<!-- Style -->
+<link rel="stylesheet" href="./css/jquery-ui.min.css" />
+<link rel="stylesheet" href="./css/index.css" />
+
+<!-- Jquery -->
+<script src="./js/jquery-3.2.1.min.js"></script>
+<script src="./js/jquery-ui.min.js"></script>
+<script src="./js/jquery.knob.js"></script>
+
+<!--[if lt IE 9]>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script>
+<![endif]-->
+</head>
+
+<body>
+    <h1>Luv-Accordion Web</h1>
+    <br>
+    <div><a href=https://twitter.com/kemapoo>Twitter</a></div>
+    <br>
+    <div><a href=https://www.youtube.com/channel/UCdPFXZZgVZLrsT15tfdZXtw>Youtube</a></div>
+    <br>
+    <div><a href="viewer.html">Viewer</a></div>
+    <br>
+    <div id="dialog" title="Profile">
+        <p>I am a Japanese engineer.
+            I like to play the accordion and programming.</p>
+        </div>
+        <div id="opener">Profile</div>
+
+        <script>
+        $( function() {
+            $( "#dialog" ).dialog({
+                autoOpen: false,
+                modal: true,
+                show: {
+                    effect: "fade",
+                    duration: 800
+                },
+                hide: {
+                    effect: "fade",
+                    duration: 500
+                }
+            });
+
+            $( "#opener" ).on( "click", function() {
+                $( "#dialog" ).dialog( "open" );
+            });
+        } );
+        </script>
+
+        <!-- Javascript -->
+        <script src="./js/viewport.js"></script>
+        <script>
+        $(function(){
+            //-- Setting viewport
+            //settingViewPort();
+
+            //-- Show
+            $("body").css({ visibility: "visible" });
+        });
+        </script>
+
+        </script>
+
+    </body>
+    </html>

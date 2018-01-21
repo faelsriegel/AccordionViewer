@@ -1,0 +1,29 @@
+body {
+	background-color: #111;
+}
+
+h1 {
+	padding: 0.1em;
+	color: #FFC107;
+	font-family:arial, sans-serif;
+	font-size: 3.4em;
+}
+
+a:link { color:#FFC107; text-decoration:none }
+a:visited { color:#FFC107; text-decoration:none }
+a:hover { color:#FFC107; text-decoration:none }
+a:active { color:#FFC107; text-decoration:none }
+
+div {
+	padding: 0.1em;
+	color: #FFC107;
+	font-family:arial, sans-serif;
+	font-size: 1.4em;
+}
+
+#opener {
+	cursor: pointer;
+}
+#usage {
+	cursor: pointer;
+}

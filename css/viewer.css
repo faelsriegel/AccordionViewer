@@ -1,0 +1,86 @@
+
+
+body {
+	/*background-color: #000;*/
+	background: linear-gradient(to right, #333, #000 20%, #000 80%, #333);
+}
+
+header {
+	/*background-color: #000;*/
+	text-align:center;
+}
+
+#manual_icon, #midi_icon, #rotate_icon {
+	margin: 0px 20px 0px 20px;
+}
+
+.inline {
+	display:inline;
+}
+
+.center {
+	text-align:center;
+}
+
+#acc_body_container {
+	/*background-color: #000;*/
+	display:inline-block;
+	width: 700px;
+	height: 600px;
+	padding-top: 0px;
+	padding-bottom: 0px;
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+#left_btn_kbd_container {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+}
+#bellows_container {
+	position: absolute;
+	top: 200px;
+	left: 0px;
+}
+#grill_container {
+	position: absolute;
+	top: 300px;
+	left: 0px;
+}
+#right_btn_kbd_container{
+	position: absolute;
+	top: 400px;
+	left: 0px;
+}
+
+.right_btn_kbd .left_btn_kbd
+{
+	/*
+	background-color: #004;
+	*/
+}
+
+.bellows
+{
+	background-color: #333;
+}
+
+#chord_display {
+	/*background-color: #000;*/
+	margin: 0 auto;
+	color: #0CC;
+	width: 700px;
+	height: 70px;
+	font-size: 3.0em;
+	text-align:center;
+}
+
+#exp_graph_frame {
+	text-align:center;
+}
+
+footer {
+	color: #888;
+	text-align:center;
+}
