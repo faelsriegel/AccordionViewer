@@ -9,6 +9,11 @@ http://opensource.org/licenses/mit-license.php
 $(window).on("load",function(){
 //$(window).load(function(){
 //$(function(){
+
+    cssDeviceIcon();
+    cssManualIcon();
+    cssRotateIcon();
+
     //-- Setting viewport
     //settingViewPort();
 

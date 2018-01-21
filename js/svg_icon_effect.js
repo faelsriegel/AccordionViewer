@@ -6,11 +6,14 @@ This software is released under the MIT License.
 http://opensource.org/licenses/mit-license.php
 */
 
-$(function(){
+/*
+$(window).on("load",function(){
+//$(function(){
     cssDeviceIcon();
     cssManualIcon();
     cssRotateIcon();
 });
+*/
 
 var cssDeviceIcon = function() {
     var fig = document.getElementById('midi_icon').contentDocument;
