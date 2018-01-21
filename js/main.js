@@ -6,8 +6,8 @@ This software is released under the MIT License.
 http://opensource.org/licenses/mit-license.php
 */
 
-
-$(window).load(function(){
+$(window).on("load",function(){
+//$(window).load(function(){
 //$(function(){
     //-- Setting viewport
     //settingViewPort();
