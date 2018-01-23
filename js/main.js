@@ -7,8 +7,22 @@ http://opensource.org/licenses/mit-license.php
 */
 
 $(window).on("load",function(){
-//$(window).load(function(){
-//$(function(){
+
+    var userAgent = window.navigator.userAgent.toLowerCase();
+    if(userAgent.indexOf('msie') != -1 || userAgent.indexOf('trident') != -1) {
+        // not support
+        alert("I'm sorry.\nYour browser is not supported.\nOnly the following browsers are supported.\nPC(Win/Mac): Google Chrome\niPad/iPhone: Web MIDI Browser");
+    } else if(userAgent.indexOf('edge') != -1) {
+        // not support
+        alert("I'm sorry.\nYour browser is not supported.\nOnly the following browsers are supported.\nPC(Win/Mac): Google Chrome\niPad/iPhone: Web MIDI Browser");
+    } else if (userAgent.indexOf('chrome') != -1) {
+        // OK
+    } else if (userAgent.indexOf('webmidibrowser') != -1) {
+        // OK
+    } else {
+        // not support
+        alert("I'm sorry.\nYour browser is not supported.\nOnly the following browsers are supported.\nPC(Win/Mac): Google Chrome\niPad/iPhone: Web MIDI Browser");
+    }
 
     cssDeviceIcon();
     cssManualIcon();
