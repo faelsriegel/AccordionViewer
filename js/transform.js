@@ -30,13 +30,19 @@ var transformBellows = function (id_name) {
 class CTransformAccBody {
     constructor(id) {
         this.acc_body_id = id;
-        this.rotate_cnt = 1;
+        this.rotateZ_cnt = 1;
         //this.rotate_btn_id = $('#rotate_icon');
-        this.rotate_btn_id = $(document.getElementById('rotate_icon').contentDocument).find('#layer3');
+        this.rotateY_btn_id = $(document.getElementById('rotateY_icon').contentDocument).find('#layer3');
+        this.rotateZ_btn_id = $(document.getElementById('rotate_icon').contentDocument).find('#layer3');
         this.scale = 0.8;//1.0;
-        this.cssTransform(0, 0, this.rotate_cnt*90);
 
-        this.rotate_btn_id.on("click", function() {
+		this.isMirror = false;
+        this.degX = 0;
+        this.degY = 0;
+        this.degZ = this.rotateZ_cnt*90;
+        this.cssTransform(this.degX, this.degY, this.degZ);
+
+        this.rotateZ_btn_id.on("click", function() {
             //-- .animate( properties, options )
             $(this.acc_body_id).animate(
                 {//-- properties
@@ -45,18 +51,59 @@ class CTransformAccBody {
                 {//-- options
                     duration: 1000,
                     step: function (num) {
-                        var deg =  (num * 90) + (this.rotate_cnt * 90);
-                        this.cssTransform(0, 0, deg);
+                    	if (this.isMirror) {
+                    		this.degY = 180 * (1 - num);
+                    	} else {
+                        	this.degZ = (num * 90) + (this.rotateZ_cnt * 90);
+                    	}
+                   		this.cssTransform(this.degX, this.degY, this.degZ);
                     }.bind(this),
                     complete: function () {
                         $(this.acc_body_id).css('z-index', 0);
-                        this.rotate_cnt++;
-                        if(this.rotate_cnt == 4) this.rotate_cnt =0;
+                    	if (this.isMirror) {
+                    		this.isMirror = false;
+                    		this.rotateZ_cnt = 1;
+                    		this.degZ = this.rotateZ_cnt*90;
+                    	} else {
+	                        this.rotateZ_cnt++;
+	                        if(this.rotateZ_cnt == 4) this.rotateZ_cnt =0;
+	                    }
                     }.bind(this)
                 }
             );
         }.bind(this));
 
+        this.rotateY_btn_id.on("click", function() {
+            //-- .animate( properties, options )
+            $(this.acc_body_id).animate(
+                {//-- properties
+                    'y-index': 1
+                },
+                {//-- options
+                    duration: 1000,
+                    step: function (num) {
+                    	if (this.isMirror) {
+                    		this.degY = 180 * (1 - num);
+                    	} else {
+                    		this.degY = 180 * num;
+                   			this.degZ = 90 + (this.degZ - 90) * (1-num);
+
+                    	}
+                        this.cssTransform(this.degX, this.degY, this.degZ);
+                    }.bind(this),
+                    complete: function () {
+                        $(this.acc_body_id).css('y-index', 0);
+                    	if (this.isMirror) {
+                    		this.isMirror = false;
+                    		this.rotateZ_cnt = 1;
+                    		this.degZ = this.rotateZ_cnt*90;
+                    	} else {
+                    		this.isMirror = true;
+                    	}
+                    }.bind(this)
+                }
+            );
+        }.bind(this));
     };
 
     cssTransform(degRotateX, degRotateY, degRotateZ) {

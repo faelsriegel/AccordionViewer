@@ -115,13 +115,79 @@ var cssRotateIcon = function() {
     });
 
     $layer.click(function () {
-        $arc.css({
+    });
+}
+
+var cssMirrorIcon = function() {
+    var fig = document.getElementById('rotateY_icon').contentDocument;
+    var $fig = $(fig);
+    var $layer = $fig.find('#layer3');
+    var $rect = $fig.find('#g1425 rect');
+
+    $layer.hover(function () {
+        $rect.css({
+            'cursor': 'pointer',
+            'fill': '#777',
+            'stroke': '#e22',
+        });
+    },
+    function () {
+        $rect.css({
             'fill': '#000000',
             'stroke': '#b00',
         });
-        $tri.css({
-            'fill': '#b00',
+    });
+
+    $layer.click(function () {
+    });
+}
+
+var cssRightBtnSysIcon = function() {
+    var fig = document.getElementById('right_btn_sys_icon').contentDocument;
+    var $fig = $(fig);
+    var $layer = $fig.find('#layer3');
+    var $rect = $fig.find('#g24408 rect');
+
+    $layer.hover(function () {
+        $rect.css({
+            'cursor': 'pointer',
+            'fill': '#777',
+            'stroke': '#e22',
+        });
+    },
+    function () {
+        $rect.css({
+            'fill': '#000',
             'stroke': '#b00',
         });
+    });
+
+    $layer.click(function () {
+    });
+}
+
+var cssKbdBtnIcon = function() {
+    var fig = document.getElementById('kbd_btn_icon').contentDocument;
+    var $fig = $(fig);
+    var $layer = $fig.find('#layer3');
+    var $flame_rect = $fig.find('#rect1466-9-8');
+    var $eclipse = $fig.find('#g4848 eclipse');
+
+    $layer.hover(function () {
+        $flame_rect.css({
+            'cursor': 'pointer',
+            'fill': '#777',
+            'stroke': '#e22',
+        });
+    },
+    function () {
+        $flame_rect.css({
+            'fill': '#000',
+            'stroke': '#b00',
+        });
+
+    });
+
+    $layer.click(function () {
     });
 }

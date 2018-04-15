@@ -514,7 +514,8 @@ class CBassBtn {
             this.isBlack = true;
             break;
         default:
-            this.isBlack = false;
+            this.isBlack = true;
+            //this.isBlack = false;
             break;
         }
 
@@ -611,7 +612,7 @@ class CBassBtn {
         var x = this.x;
         var y = this.y;
         var isBlack = this.isBlack;
-        var radius = 7;//ボタンの半径
+        var radius = 8;//7;//ボタンの半径
         this.grad = this.ctx.createRadialGradient( x + radius - radius/8, y + radius - radius/4, 4, x + radius, y + radius, radius ); //ボタン内側（明るい部分の円）の半径をあえてずらしています。
 
         if (isNoteOn) {
@@ -653,7 +654,11 @@ class CBassBtn {
         this.ctx.fillStyle = this.grad;
 
         this.ctx.beginPath();
-        this.ctx.arc(x + radius, y + radius, radius, 0, Math.PI*2, false);
+        if (isNoteOn) {
+            this.ctx.arc(x + radius, y + radius, radius-2, 0, Math.PI*2, false);
+        } else {
+            this.ctx.arc(x + radius, y + radius, radius, 0, Math.PI*2, false);
+        }
         this.ctx.fill();
 
         //console.log(this.btnNum + " : " + LowestBtnNumOfRowB);
@@ -663,7 +668,8 @@ class CBassBtn {
                 if (this.cOfst === 8) {
                     this.ctx.fillStyle = 'rgba(30, 30, 30, 1.0)'; // 紫
                 } else {
-                    this.ctx.fillStyle = 'rgba(80, 80, 80, 1.0)'; // 紫
+                    this.ctx.fillStyle = 'rgba(30, 30, 30, 1.0)'; // 紫
+                    //this.ctx.fillStyle = 'rgba(80, 80, 80, 1.0)'; // 紫
                 }
                 this.ctx.arc(x + radius, y + radius, radius/2, 0, Math.PI*2, false);
                 this.ctx.fill();

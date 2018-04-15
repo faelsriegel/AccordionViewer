@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:osb="http://www.openswatchbook.org/uri/2009/osb"
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="100"
+   height="100"
+   viewBox="0 0 26.458333 26.458334"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="RotateY.svg"
+   inkscape:version="0.92.2 (5c3e80d, 2017-08-06)">
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1058"
+     id="namedview829"
+     showgrid="false"
+     inkscape:zoom="2.9839906"
+     inkscape:cx="-67.40138"
+     inkscape:cy="49.456377"
+     inkscape:window-x="191"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer3" />
+  <metadata
+     id="metadata847">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs845">
+    <linearGradient
+       id="linearGradient1482"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#9c0000;stop-opacity:1;"
+         offset="0"
+         id="stop1480" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1476"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#aa0000;stop-opacity:1;"
+         offset="0"
+         id="stop1474" />
+    </linearGradient>
+    <linearGradient
+       id="linearGradient1470"
+       osb:paint="solid">
+      <stop
+         style="stop-color:#aa0000;stop-opacity:1;"
+         offset="0"
+         id="stop1468" />
+    </linearGradient>
+  </defs>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 3"
+     style="display:inline">
+    <g
+       id="g906" />
+    <g
+       id="g1425">
+      <rect
+         y="0.91116059"
+         x="6.7718339"
+         height="19.336386"
+         width="18.989403"
+         id="rect1466"
+         style="opacity:1;fill:none;fill-opacity:1;stroke:#9c0000;stroke-width:1.68911064;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+      <ellipse
+         cy="12.716867"
+         cx="5.6763415"
+         id="path1464-5-5"
+         style="display:inline;opacity:1;fill:#a50000;fill-opacity:1;stroke:#a50000;stroke-width:0.62957674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         rx="4.0220246"
+         ry="3.9024994" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         style="display:inline;opacity:1;fill:#a50000;fill-opacity:1;stroke:#a50000;stroke-width:1.08233082;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="M 10.63203,17.627657 C 7.0962538,17.273876 3.5681939,17.133286 0.64879683,17.538989 L 1.8452563,26.06271 c 3.3056241,-0.04947 4.5495892,-0.08501 7.6730966,-0.0367 z"
+         id="rect850-3-8-8" />
+      <ellipse
+         cy="6.3328004"
+         cx="19.542803"
+         id="path1464-5-5-4"
+         style="display:inline;opacity:1;fill:#a50000;fill-opacity:1;stroke:#a50000;stroke-width:0.62957674;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         rx="4.0220246"
+         ry="3.9024994" />
+      <path
+         sodipodi:nodetypes="ccccc"
+         inkscape:connector-curvature="0"
+         style="display:inline;opacity:1;fill:#a50000;fill-opacity:1;stroke:#a50000;stroke-width:1.06439149;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         d="m 23.900638,11.415119 c -3.226933,-0.374897 -6.123133,-0.429916 -8.787527,0 l 1.129877,8.938516 c 2.85087,-0.08132 4.001665,-0.127922 6.475931,0.0322 z"
+         id="rect850-3-8-8-4" />
+    </g>
+  </g>
+</svg>

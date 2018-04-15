@@ -10,8 +10,8 @@ header {
 	text-align:center;
 }
 
-#manual_icon, #midi_icon, #rotate_icon {
-	margin: 0px 20px 0px 20px;
+#manual_icon, #midi_icon, #right_btn_sys_icon, #rotate_icon, #rotateY_icon, #kbd_btn_icon {
+	margin: 0px 40px 0px 20px;
 }
 
 .inline {

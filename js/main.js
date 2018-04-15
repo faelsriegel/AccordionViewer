@@ -26,7 +26,10 @@ $(window).on("load",function(){
 
     cssDeviceIcon();
     cssManualIcon();
+    cssRightBtnSysIcon();
     cssRotateIcon();
+    cssMirrorIcon();
+    cssKbdBtnIcon();
 
     //-- Setting viewport
     //settingViewPort();
@@ -41,8 +44,8 @@ $(window).on("load",function(){
     initMIDIService();
 
     //-- Init Right Btn Kbd
-    //alert("RightBtnKbd");
-    initRightBtnKbd();
+    //alert("RightKbd");
+    initRightKbd();
 
     //-- Init Left Btn Kbd
     //alert("LeftBtnKbd");

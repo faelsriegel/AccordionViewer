@@ -134,7 +134,7 @@ function handleMIDIMessage( event ) {
     chordDisplay.setEvent(event);
 
     //-- Righht Hand Keyboard View
-    rightBtnKbd.receiveEvent(event);
+    rightKbd.receiveEvent(event);
 
     //-- Left Hand Keyboard View
     leftBtnKbd.receiveEvent(event);

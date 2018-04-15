@@ -6,9 +6,40 @@ This software is released under the MIT License.
 http://opensource.org/licenses/mit-license.php
 */
 
-var rightBtnKbd;
-var initRightBtnKbd = function () {
-    rightBtnKbd = new CRightBtnKbd();
+var rightKbd;
+var pianoKbd;
+var btnKbd;
+var isPianoType = 0;
+var initRightKbd = function () {
+    if (rightKbd == undefined) {
+        rightKbd = new CRightBtnKbd();
+    }
+    isPianoType = 0;
+
+    $(document.getElementById('kbd_btn_icon').contentDocument).find('#layer3').on("click", function() {
+        changeRightKbd();
+        return;
+    });
+    $(document.getElementById('right_btn_sys_icon').contentDocument).find('#layer3').on("click", function() {
+        if (isPianoType == 1) {
+            changeRightKbd();
+        }
+        return;
+    });
+};
+
+var changeRightKbd = function () {
+    if (rightKbd != undefined) {
+        rightKbd.destructor();
+        delete rightKbd;
+    }
+    if (isPianoType) {
+        rightKbd = new CRightBtnKbd();
+        isPianoType = 0;
+    } else {
+        rightKbd = new CRightPianoKbd();
+        isPianoType = 1;
+    }
 };
 
 //=================================================
@@ -87,12 +118,71 @@ class CRightBtnKbd {
             this.btn[i] = new CBtn((mGlobalXOfst + mXOfst + mXInterval * count), mGlobalYOfst + mYOfstE, (mLowestNoteNumOfRowE + count * 3));
             count++;
         }
+
+
+        this.rightBtnType_id = $(document.getElementById('right_btn_sys_icon').contentDocument).find('#layer3');
+        this.rightBtnType_id.on("click", function() {
+            if (isPianoType) return;
+
+            if (mKbdType == 0) {
+                mKbdType = 1;
+                mLowestNoteNumOfRowA = 0x34;
+                mLowestNoteNumOfRowB = 0x32;
+                mLowestNoteNumOfRowC = 0x33;
+                mLowestNoteNumOfRowD = 0x31;
+                mLowestNoteNumOfRowE = 0x32;
+            } else {
+                mKbdType = 0;
+                mLowestNoteNumOfRowA = 0x31;
+                mLowestNoteNumOfRowB = 0x30;
+                mLowestNoteNumOfRowC = 0x32;
+                mLowestNoteNumOfRowD = 0x31;
+                mLowestNoteNumOfRowE = 0x33;
+            }
+
+            //-- Update Note Assign
+            var count;
+            count = 0;
+            for (var i = mLowestBtnNumOfRowA; i < (mLowestBtnNumOfRowA + mNumOfRowA); i++) {
+                this.btn[i].setNote(mLowestNoteNumOfRowA + count * 3);
+                count++;
+            }
+            count = 0;
+            for (var i = mLowestBtnNumOfRowB; i < (mLowestBtnNumOfRowB + mNumOfRowB); i++) {
+                this.btn[i].setNote(mLowestNoteNumOfRowB + count * 3);
+                count++;
+            }
+            count = 0;
+            for (var i = mLowestBtnNumOfRowC; i < (mLowestBtnNumOfRowC + mNumOfRowC); i++) {
+                this.btn[i].setNote(mLowestNoteNumOfRowC + count * 3);
+                count++;
+            }
+            count = 0;
+            for (var i = mLowestBtnNumOfRowD; i < (mLowestBtnNumOfRowD + mNumOfRowD); i++) {
+                this.btn[i].setNote(mLowestNoteNumOfRowD + count * 3);
+                count++;
+            }
+            count = 0;
+            for (var i = mLowestBtnNumOfRowE; i < (mLowestBtnNumOfRowE + mNumOfRowE); i++) {
+                this.btn[i].setNote(mLowestNoteNumOfRowE + count * 3);
+                count++;
+            }
+
+        }.bind(this));
+
     }
 
     receiveEvent(event) {
         for (var i = 0; i < this.mNumOfBtn; i++) {
             this.btn[i].receiveEvent(event);
         }
+    }
+
+    destructor() {
+        this.canvas = $('.right_btn_kbd').get(0);
+        if(! this.canvas || ! this.canvas.getContext) return;
+        this.ctx = this.canvas.getContext("2d");
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 };
 
@@ -183,22 +273,7 @@ class CBtn {
         //-- Note Infomation
         this.isNoteOn = false;
         this.isNoteOnPre = false;
-        this.noteNum = noteNum;
-        this.cOfst = this.noteNum%12;
-
-        this.isBlack;
-        switch (this.cOfst) {
-        case 1:
-        case 3:
-        case 6:
-        case 8:
-        case 10:
-            this.isBlack = true;
-            break;
-        default:
-            this.isBlack = false;
-            break;
-        }
+        this.setNote(noteNum);
 
         //-- Expression
         this.expression = 0;
@@ -219,6 +294,25 @@ class CBtn {
         }.bind(this), 60);
     }
 
+    setNote(noteNum) {
+        this.noteNum = noteNum;
+        this.cOfst = this.noteNum%12;
+
+        this.isBlack;
+        switch (this.cOfst) {
+        case 1:
+        case 3:
+        case 6:
+        case 8:
+        case 10:
+            this.isBlack = true;
+            break;
+        default:
+            this.isBlack = false;
+            break;
+        }
+        this.drawBtn(this.isNoteOn);
+    }
     receiveEvent(event) {
 
         var noteEv = event.data[0];
@@ -290,9 +384,11 @@ class CBtn {
         var y = this.y;
         var isBlack = this.isBlack;
         var radius = 15;//ボタンの半径
+
         this.grad = this.ctx.createRadialGradient( x + radius - radius/8, y + radius - radius/4, 4, x + radius, y + radius, radius ); //ボタン内側（明るい部分の円）の半径をあえてずらしています。
 
         if (isNoteOn) {
+
             // 押鍵時のエクスプレッションによる3色グラデーション制御
             var centgrad = 64;
             var diff1 = centgrad;
@@ -331,7 +427,23 @@ class CBtn {
         this.ctx.fillStyle = this.grad;
 
         this.ctx.beginPath();
-        this.ctx.arc(x + radius, y + radius, radius, 0, Math.PI*2, false);
+        if (isNoteOn) {
+            this.ctx.arc(x + radius, y + radius, radius-2, 0, Math.PI*2, false);
+        } else {
+            this.ctx.arc(x + radius, y + radius, radius, 0, Math.PI*2, false);
+        }
+
         this.ctx.fill();
+
+        // C and F marker
+        if(this.cOfst == 0 || this.cOfst == 5) {
+                this.ctx.beginPath();
+                this.ctx.strokeStyle = 'rgba(150, 150, 150, 1.0)';
+                this.ctx.arc(x + radius, y + radius, radius/1.5, 0, Math.PI*2, false);
+                this.ctx.stroke();
+        }
+    }
+    clear() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     }
 };
