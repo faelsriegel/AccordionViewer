@@ -1,39 +1,45 @@
 <!doctype html>
+<html lang="pt-br">
 
-<html lang="en">
 <head>
     <!--
     Copyright 2018 Luv-Accordion
-    This software is released under the MIT License.
+    Este software é distribuído sob a Licença MIT.
     http://opensource.org/licenses/mit-license.php
     -->
 
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110692262-1"></script>
+    <!-- Tag global do site (gtag.js) - Google Analytics -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=UA-110692262-1"></script> -->
     <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-110692262-1');
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'UA-110692262-1');
     </script>
 
     <meta charset="utf-8">
-    <!--<meta name="viewport" content="width=device-width,initial-scale=1.0">-->
     <meta name="description" content="Luv-Accordion Web">
     <meta name="author" content="K.Matsumoto">
-	<meta property="og:image" content=" https://luv-accordion.github.io/V-AccordionViewer/images/screen_thum.png" />
+    <meta property="og:image" content=" https://luv-accordion.github.io/V-AccordionViewer/images/screen_thum.png" />
 
-    <title>Luv-Accordion</title>
+    <title>Projeto de Desenho Técnico</title>
 
-    <!-- 初期状態は非表示 -->
-    <style type="text/css">body { visibility: hidden; }</style>
+    <!-- Estilo inicial - corpo oculto até o carregamento do script -->
+    <style type="text/css">
+        body {
+            visibility: hidden;
+        }
+    </style>
     <noscript>
-    <!-- スクリプトが無効な場合は以下の指定がカスケードされる -->
-    <style type="text/css">body { visibility: visible; }</style>
+        <!-- Caso o JavaScript esteja desativado, o corpo será visível -->
+        <style type="text/css">
+            body {
+                visibility: visible;
+            }
+        </style>
     </noscript>
 
-    <!-- Style -->
+    <!-- Estilos -->
     <link rel="stylesheet" href="./css/jquery-ui.min.css" />
     <link rel="stylesheet" href="./css/jquery-ui.structure.min.css" />
     <link rel="stylesheet" href="./css/jquery-ui.theme.min.css" />
@@ -52,137 +58,121 @@
 
 <body>
     <header>
-        <div class="center">
-            <img  src="./images/V-AccordionViewerLogo.svg" width="400">
-        </div>
-
+        <h1>Projeto de Desenho Técnico Avançado</h1> <!-- Título principal adicionado -->
+        <!-- Navegação com ícones -->
         <nav>
             <ul>
-
-                <li  class="inline"><object  id="manual_icon" type="image/svg+xml" data="./images/Manual.svg" width="40" height="40"></object></li>
-                <li  class="inline"><object  id="midi_icon" type="image/svg+xml" data="./images/Device.svg" width="40" height="40"></object></li>
-                <li  class="inline"><object id="kbd_btn_icon" type="image/svg+xml" data="./images/KbdOrBtn.svg" width="40" height="40"></object></li>
-                <li  class="inline"><object id="right_btn_sys_icon" type="image/svg+xml" data="./images/RightBtnSystem.svg" width="40" height="40"></object></li>
-                <li  class="inline"><object id="rotate_icon" type="image/svg+xml" data="./images/Rotate.svg" width="40" height="40"></object></li>
-                <li  class="inline"><object id="rotateY_icon" type="image/svg+xml" data="./images/RotateY.svg" width="40" height="40"></object></li>
-                <!--<li  class="inline"><button id="rotate_icon">Rotate</button></li>-->
+                <li class="inline"><object id="manual_icon" type="image/svg+xml" data="./images/Manual.svg" width="40"
+                        height="40"></object></li>
+                <li class="inline"><object id="midi_icon" type="image/svg+xml" data="./images/Device.svg" width="40"
+                        height="40"></object></li>
+                <li class="inline"><object id="kbd_btn_icon" type="image/svg+xml" data="./images/KbdOrBtn.svg"
+                        width="40" height="40"></object></li>
+                <li class="inline"><object id="right_btn_sys_icon" type="image/svg+xml"
+                        data="./images/RightBtnSystem.svg" width="40" height="40"></object></li>
+                <li class="inline"><object id="rotate_icon" type="image/svg+xml" data="./images/Rotate.svg" width="40"
+                        height="40"></object></li>
+                <li class="inline"><object id="rotateY_icon" type="image/svg+xml" data="./images/RotateY.svg" width="40"
+                        height="40"></object></li>
             </ul>
         </nav>
 
-        <!-- Set Manual Dialog Button ------------------------------------------------------------------ -->
+        <!-- Janela de Diálogo de Manual -->
         <div id="usageDialog" title="Manual">
-        	<p>Please refer to explanation of Youtube video too. <br>
-        	<iframe width="560" height="315" src="https://www.youtube.com/embed/64c1Qs2L690?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-        	</p>
-            <h4>Features of the application</h4>
-                <ul>
-                    <li>This is a WEB application that displays Roland V-Accordion's MIDI performance information on the screen.</li>
-                    <li>You can visually check the expression of strength of bellows.</li>
-                    <li>It displays chord from the play infomation of Left Button Keyboard.</li>
-                    <li>It rotates the accordion of the screen when pressing the rotation button.</li>
-                </ul>
-            <h4>Operation confirmation model</h4>
-                <ul>
-                    <li>FR-4xb</li>
-                </ul>
-                <p>This app may work on other models as well. But they are not certain.<br>It does not guarantee the operation.</p>
-            <h4>Setting</h4>
-                <p>
-                    <img src="./images/HowToConnect_for_pc.png" width="700" height="525">
-                    <img src="./images/HowToConnect_for_ios.png" width="700" height="525">
-                </p>
-            <h4>Cautions when using</h4>
-                <ul>
-                    <li>The optimal screen resolution is 1920 × 1080(FULL HD).<br>It is recommended to maximize the browser ([F11] button).</li>
-                    <li>The right button keyboard mode is for C-System.</li>
-                    <li>It may happen that the push and pull of the bellows are reversed.</li>
-                </ul>
-            <h4>Version Information/Revision history</h4>
-                <ul>
-                    <li>1.10 002 (2018/04/14)</li>
-                </ul>
-            <h4>LICENSE</h4>
-                <ul>
-                    <li>MIT LICENSE</li>
-                </ul>
-            <p>Copyright © 2018 Luv-Accordion All Rights Reserved.</p>
+            <p>Por favor, consulte também a explicação em vídeo no Youtube: <br>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/64c1Qs2L690?rel=0" frameborder="0"
+                    allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </p>
+            <h4>Características da Aplicação</h4>
+            <ul>
+                <li>Aplicação WEB que exibe informações de performance MIDI do Roland V-Accordion na tela.</li>
+                <li>Permite verificar visualmente a expressão da força dos foles.</li>
+                <li>Exibe acordes a partir das informações de execução do Teclado de Botão Esquerdo.</li>
+                <li>Rotaciona o acordeão na tela ao pressionar o botão de rotação.</li>
+            </ul>
+            <h4>Modelo Compatível</h4>
+            <ul>
+                <li>FR-4xb</li>
+            </ul>
+            <p>Este aplicativo pode funcionar em outros modelos também, mas não é garantido.</p>
+            <h4>Configurações</h4>
+            <p>
+                <img src="./images/HowToConnect_for_pc.png" width="700" height="525">
+                <img src="./images/HowToConnect_for_ios.png" width="700" height="525">
+            </p>
+            <h4>Cuidados ao Usar</h4>
+            <ul>
+                <li>A resolução de tela ideal é 1920 × 1080 (FULL HD).<br>Recomenda-se maximizar o navegador (tecla
+                    [F11]).</li>
+                <li>O modo do teclado de botões à direita é para o sistema C.</li>
+                <li>O empurrar e puxar dos foles podem estar invertidos em algumas configurações.</li>
+            </ul>
+            <h4>Informações da Versão / Histórico de Revisões</h4>
+            <ul>
+                <li>1.10 002 (2018/04/14)</li>
+            </ul>
+            <h4>LICENÇA</h4>
+            <ul>
+                <li>LICENÇA MIT</li>
+            </ul>
         </div>
 
-
-        <!-- MIDI Device Setting Window	------------------------------------------------------------------ -->
-        <div id="deviceDialog" title="Device">
-        	<div class="block_frame">
-        	  <span class="block_frame_title">MIDI Device Setting</span>
-        	  <p>
-        	    <div id="midi_dev">
-        	      <table>
-        	        <tr>
-        	          <td>Input:
-        	            <form name="input_device_select">
-        	              <select name="ids" onChange="inputDeviceSelect(this);">
-        	                <option value="0">No Device
-        	              </select>
-        	            </form>
-        	          </td>
-        	          <td width="40"></td>
-        	          <td>Output:
-        	            <form name="output_device_select">
-        	              <select name="ids" onChange="outputDeviceSelect(this);">
-        	                <option value="0">No Device
-        	              </select>
-        	            </form>
-        	          </td>
-        	        </tr>
-        	      </table>
-        	    </div>
-        	  </p>
-        	</div>
+        <!-- Janela de Configuração de Dispositivo MIDI -->
+        <div id="deviceDialog" title="Configuração de Dispositivo MIDI">
+            <div class="block_frame">
+                <span class="block_frame_title">Configuração de Dispositivo MIDI</span>
+                <div id="midi_dev">
+                    <table>
+                        <tr>
+                            <td>Entrada:
+                                <form name="input_device_select">
+                                    <select name="ids" onChange="inputDeviceSelect(this);">
+                                        <option value="0">Nenhum Dispositivo</option>
+                                    </select>
+                                </form>
+                            </td>
+                            <td width="40"></td>
+                            <td>Saída:
+                                <form name="output_device_select">
+                                    <select name="ids" onChange="outputDeviceSelect(this);">
+                                        <option value="0">Nenhum Dispositivo</option>
+                                    </select>
+                                </form>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
         </div>
     </header>
 
     <section>
-        <!-- Script Usage Dialog Button -->
+        <!-- Script para abertura dos diálogos -->
         <script>
-        $( function() {
-            $( "#usageDialog" ).dialog({
-                autoOpen: false,
-                height: 800,
-                width: 800,
-                modal: true,
-                show: {
-                    effect: "fade",
-                    duration: 800
-                },
-                hide: {
-                    effect: "fade",
-                    duration: 500
-                }
-            });
-            $( "#deviceDialog" ).dialog({
-                autoOpen: false,
-                height: 200,
-                width: 450,
-                modal: true,
-                show: {
-                    effect: "fade",
-                    duration: 800
-                },
-                hide: {
-                    effect: "fade",
-                    duration: 500
-                }
-            });
+            $(function () {
+                $("#usageDialog").dialog({
+                    autoOpen: false,
+                    height: 800,
+                    width: 800,
+                    modal: true,
+                    show: { effect: "fade", duration: 800 },
+                    hide: { effect: "fade", duration: 500 }
+                });
+                $("#deviceDialog").dialog({
+                    autoOpen: false,
+                    height: 200,
+                    width: 450,
+                    modal: true,
+                    show: { effect: "fade", duration: 800 },
+                    hide: { effect: "fade", duration: 500 }
+                });
 
-            $( "#usage" ).on( "click", function() {
-                $( "#usageDialog" ).dialog( "open" );
+                $("#usage").on("click", function () { $("#usageDialog").dialog("open"); });
+                $("#device").on("click", function () { $("#deviceDialog").dialog("open"); });
             });
-            $( "#device" ).on( "click", function() {
-                $( "#deviceDialog" ).dialog( "open" );
-
-            });
-        } );
         </script>
 
+        <!-- Exibição dos Acordes e Gráficos -->
         <div id="chord_display"></div>
 
         <div class="center">
@@ -194,9 +184,9 @@
                     <canvas width="700" height="100" class="bellows" id="bellows"></canvas>
                 </div>
                 <div class="inline" id="grill_container">
-                    <img  src="./images/Grill.svg" width="700">
+                    <img src="./images/Grill.svg" width="700">
                 </div>
-                <div  class="inline" id="right_btn_kbd_container">
+                <div class="inline" id="right_btn_kbd_container">
                     <canvas width="700" height="200" class="right_btn_kbd" id="right_btn_kbd_rotate"></canvas>
                 </div>
             </div>
@@ -205,14 +195,14 @@
         <div id="exp_graph_frame">
             <canvas width="500" height="128" id="exp_graph"></canvas>
         </div>
-
     </section>
 
     <footer>
-    <a href="./index.html"><img  id="logo" src="./images/Luv-AccordionLogo.svg" width="335" height="25"></a>
-    <p>Copyright © 2018 Luv-Accordion All Rights Reserved.</p>
+        <a href="./index.html"><img id="logo" src="./images/Luv-AccordionLogo.svg" width="335" height="25"></a>
+        <p>Copyright © 2018 Luv-Accordion. Todos os Direitos Reservados.</p>
     </footer>
-    <!-- Main -->
+
+    <!-- Scripts Principais -->
     <script src="./js/svg_icon_effect.js"></script>
     <!--<script src="./js/viewport.js"></script>-->
     <script src="./js/transform.js"></script>
@@ -224,7 +214,6 @@
     <script src="./js/exp_graph.js"></script>
     <script src="./js/midi_service.js"></script>
     <script src="./js/main.js"></script>
-
-
 </body>
+
 </html>
